@@ -3,28 +3,30 @@
 namespace App\Http\Controllers;
 
 use App\Interfaces\CategoryInterface;
+use App\Models\Category;
 use Illuminate\Http\Request;
-
-use function PHPUnit\Framework\returnSelf;
 
 class CategoryController extends Controller
 {
 
-    public function __construct(
-        private CategoryInterface $CategoryInterface
-    )
+    private $a;
+
+    public function __construct(CategoryInterface $categoryInterface)
     {
-
+        $this->a=$categoryInterface;
+       
     }
-
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        // dd('hi');
-        $categories = $this->CategoryInterface->all();
-        return view('admin.categories.index', compact('categories'));
+        $categories= $this->a->all();
+        return view('admin.categories.index' ,compact('categories'));
+
+        // $categories=Category::paginate();
+        // return view('admin.categories.index' ,compact('categories'));
+
     }
 
     /**
@@ -40,10 +42,8 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $this->ValidationCheck($request);
-        $this->CategoryInterface->store();
-        // dd($categories);
-        return redirect('categories');
+       $this->a->store();
+       return redirect('/categories');
     }
 
     /**
@@ -59,17 +59,19 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        $categories=$this->CategoryInterface->findById($id);
+        //
+        $categories=$this->a->findById($id);
         return view('admin.categories.edit',compact('categories'));
     }
 
     /**
      * Update the specified resource in storage.
-     */
+     */     
     public function update(Request $request, string $id)
     {
-        $this->CategoryInterface->update($id);
+        $this->a->update($id);
         return redirect('categories');
+
     }
 
     /**
@@ -77,17 +79,9 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        $this->CategoryInterface->destroy($id);
+        //
+        $this->a->destroy($id);
         return redirect('categories');
+
     }
-    // For validation 
-
-    private function ValidationCheck($request){
-        return  $request->validate([
-            'name' => ' required | unique:categories'
-           
-
-        ]);
-        return redirect('/categories');
-    } 
 }

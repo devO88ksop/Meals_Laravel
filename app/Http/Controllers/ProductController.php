@@ -15,7 +15,8 @@ class ProductController extends Controller
 
     }
     public function index()
-    {
+    {       
+
         // dd('hi controller');
         $products=$this->productInterface->all();
         $categories=Category::all();
