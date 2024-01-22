@@ -1,8 +1,11 @@
 <?php 
 namespace App\Repositories;
 
-use App\Interfaces\CategoryInterface;
 use App\Models\Category;
+use GuzzleHttp\Psr7\Request;
+use App\Interfaces\CategoryInterface;
+
+
 
 class CategoryRepository implements CategoryInterface{
     public function all()
@@ -10,9 +13,14 @@ class CategoryRepository implements CategoryInterface{
         return Category::paginate()->all();
         
     }
-    public function store()
+    public function store($request)
     {
         // dd(request()->all());
+     
+        $validated = $request->validate([
+            'name' => 'required|unique:categories|max:255', 
+        ]);
+         
         $category = new Category();
         $category->name=request()->name;
         $category->save();
@@ -32,5 +40,6 @@ class CategoryRepository implements CategoryInterface{
         $categories = $this->findById($id);
         $categories->delete();
     }
+
 
 }

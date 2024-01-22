@@ -178,7 +178,7 @@
                             <img src="assets/images/flags/germany.svg" alt="user-image" class="me-2 rounded"
                                 height="18"> <span class="align-middle">Deutsche</span>
                         </a>
-
+                        an
                         <!-- item-->
                         <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="it"
                             title="Italian">
@@ -760,11 +760,11 @@
                     <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         <span class="d-flex align-items-center">
-                            <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-1.jpg"
+                            <img class="rounded-circle header-profile-user" src="assets/images/users/kyawswepf.jpg"
                                 alt="Header Avatar">
                             <span class="text-start ms-xl-2">
-                                <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Anna Adame</span>
-                                <span class="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text">Founder</span>
+                                <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Dr.KyawSwe</span>
+                                <span class="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text">Founder & CEO</span>
                             </span>
                         </span>
                     </button>

@@ -39,15 +39,25 @@
                         <i class="ri-layout-3-line"></i> <span data-key="t-layouts">Layouts</span>
                     </a>
                     <div class="collapse menu-dropdown" id="sidebarLayouts">
+
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{ url('/categories') }}" class="nav-link"
+                                <a href="{{ url('/admins') }}" class="nav-link"
+                                    data-key="t-order">Admins Panel</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ url('admin/categories') }}" class="nav-link"
                                     data-key="t-category">Categories</a>
                             </li>
                             <li class="nav-item">
-                               <a href="{{ url('/products') }}" class="nav-link"
+                               <a href="{{ url('admin/products') }}" class="nav-link"
                                    data-key="t-product">Products</a>
                            </li>
+                           <li class="nav-item">
+                            <a href="{{ url('admin/orders') }}" class="nav-link"
+                                data-key="t-order">Orders</a>
+                        </li>
+
 
 
                         </ul>

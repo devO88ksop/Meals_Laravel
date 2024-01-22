@@ -3,7 +3,7 @@
 
     <div class="page-content">
         <div class="container-fluid">
-            <form action="{{ url('categories') }}" method="POST">
+            <form action="{{ url('admin/categories') }}" method="POST">
                 @csrf
                 @method('POST')
                     <div class="d-flex justify-content-center">
@@ -19,6 +19,7 @@
                         <div class="mt-3">
                             <button type="submit" class="btn btn-primary">Add</button>
                         </div>
+
                         </div>
                     </div>
             </form>

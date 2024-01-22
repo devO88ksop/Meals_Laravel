@@ -7,6 +7,8 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
+
+
 {
 
     private $a;
@@ -14,13 +16,14 @@ class CategoryController extends Controller
     public function __construct(CategoryInterface $categoryInterface)
     {
         $this->a=$categoryInterface;
-       
+
     }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+
         $categories= $this->a->all();
         return view('admin.categories.index' ,compact('categories'));
 
@@ -42,8 +45,8 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-       $this->a->store();
-       return redirect('/categories');
+        $this->a->store($request );
+        return redirect('admin/categories');
     }
 
     /**
@@ -66,7 +69,7 @@ class CategoryController extends Controller
 
     /**
      * Update the specified resource in storage.
-     */     
+     */
     public function update(Request $request, string $id)
     {
         $this->a->update($id);

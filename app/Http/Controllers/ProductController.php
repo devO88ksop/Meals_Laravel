@@ -2,35 +2,35 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Interfaces\ProductInterface;
 
 class ProductController extends Controller
 {
-    public function __construct(
-        private ProductInterface $productInterface
-    ){
-
+    private $b;
+    public function __construct(ProductInterface $ProductInterface)
+    {
+        $this->b = $ProductInterface;
     }
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
-    {       
+    {
+        $categories= Category::all();
 
-        // dd('hi controller');
-        $products=$this->productInterface->all();
-        $categories=Category::all();
-        return view('admin.products.index',compact('products','categories'));
+        $products=$this->b->all();
+        return view('admin.products.index', compact("products","categories"));
     }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
-    {   
-        
-        $categories=Category::all();
-        return view('admin.products.create',compact('categories'));
+    {
+        $categories= Category::all();
+        return view('admin.products.create', compact("categories"));
     }
 
     /**
@@ -38,9 +38,8 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $this->ValidationCheck($request);
-        $this->productInterface->store($request);
-        return redirect('products');
+        $this->b->store($request);
+        return redirect('admin/products');
     }
 
     /**
@@ -56,9 +55,12 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        $categories=Category::all();
-        $products=Product::findOrFail($id);
-        return view('admin.products.edit',compact('products','categories'));
+
+        $categories= Category::all();
+
+        $products=$this->b->findById($id);
+        return view('admin.products.edit', compact("products" ,"categories"));
+
     }
 
     /**
@@ -66,8 +68,8 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $this->productInterface->update($id);
-        return redirect('products');
+        $this->b->update($id);
+        return redirect('admin/products');
     }
 
     /**
@@ -75,18 +77,7 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        $this->productInterface->destroy($id);
-        return redirect('products');
+        $this->b->destroy($id);
+        return redirect('/admin/products');
     }
-    // for validation 
-    private function ValidationCheck($request){
-        return  $request->Validate([
-            'name' => 'required',
-            'category_id ' => 'required',
-            'price' => 'required',
-            'description' => 'required',
-            'image' => 'required'
-
-        ]);
-    } 
 }

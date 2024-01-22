@@ -10,8 +10,13 @@
                 <thead>
                     <!-- Buttons with Label -->
             <div class="my-3">
-                <a href="{{ url('/products/create') }}">
+                <a href="{{ url('admin/products/create') }}">
                     <button type="button" class="btn btn-primary btn-label waves-effect waves-light"><i class="ri-user-smile-line label-icon align-middle fs-16 me-2"></i> Add</button>
+                </a>
+            </div>
+            <div class="my-3">
+                <a href="{{ url('ui/product') }}">
+                    <button type="button" class="btn btn-primary btn-label waves-effect waves-light"><i class="ri-user-smile-line label-icon align-middle fs-16 me-2"></i>UI List</button>
                 </a>
             </div>
                     <tr>
@@ -42,24 +47,22 @@
                             @if($product->image == null)
                             <img src="{{ asset('defaultphoto/default-image.jpg') }}" style="width: 80px;height: 50px" class="round shadow-sm">
                             @else
-                            <img src="{{ asset('storage/'.$product->image) }}" style="width: 80px;height: 50px" class="round shadow-sm">
+                            <img src="{{ asset('images/'.$product->image) }}" style="width: 80px;height: 50px" class="round shadow-sm">
                             @endif
                         </td>
 
                         <td>
                             <div class="hstack gap-3 flex-wrap">
-                                <a href="{{ url('products/'.$product->id.'/edit') }}" href="javascript:void(0);"  class="link-success fs-15"><i class="ri-edit-2-line"></i>
+                                <a href="{{ url('admin/products/'.$product->id.'/edit') }}" href="javascript:void(0);"  class="link-success fs-15"> <i class="ri-edit-2-line"></i>
                                 </a>
                                 <div class="remove">
-                                    <form action="{{ url('products/'.$product->id) }}" method="POST">
+                                    <form action="{{ url('admin/products/'.$product->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button style="background-color: transparent; border:none;" class="link-danger fs-15">
                                             <i class="ri-delete-bin-line"></i>
                                         </button>
-                                        {{-- <a class="link-danger fs-15 btn">
-                                            <i class="ri-delete-bin-line"></i>
-                                        </a> --}}
+
                                     </form>
                                 </div>
                             </div>
