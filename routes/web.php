@@ -35,7 +35,9 @@ Route::resource('categories', CategoryController::class);
 Route::resource('orders', OrderController::class);
 
     });
-
+    Route::get('/master', function () {
+        return view('masterL');
+    });
 Auth::routes();
 
 Route::redirect('/', '/home');
