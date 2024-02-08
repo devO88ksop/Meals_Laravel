@@ -51,7 +51,7 @@
             </tr>
             <tr>
                 <td colspan="5" class="text-right">
-                    <a href="{{ url('admin/ui/product') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i>
+                    <a href="{{ url('ui/product') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i>
                         Continue
                         Shopping</a>
                     <form action="{{ route('checkout.from.cart') }}" method="POST">

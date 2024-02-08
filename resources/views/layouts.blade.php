@@ -8,6 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
@@ -22,6 +23,10 @@
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart <span
                             class="badge badge-pill badge-danger">{{ count((array) session('cart')) }}</span>
                     </button>
+                    
+                       <a href="{{ url('admin/products') }}" class="btn btn-secondary btn-block"> <i class="fa-solid fa-circle-left"></i> Back</a>
+                   
+                    
                     <div class="dropdown-menu">
                         <div class="row total-header-section">
                             <div class="col-lg-6 col-sm-6 col-6">
@@ -41,7 +46,7 @@
                             @foreach (session('cart') as $id => $details)
                                 <div class="row cart-detail">
                                     <div class="col-lg-4 col-sm-4 col-4 cart-detail-img">
-                                        <img src="{{ intval($details['image']) }}" />
+                                        <img src="{{ asset('images/'. $details['image']) }}" />
                                     </div>
                                     <div class="col-lg-8 col-sm-8 col-8 cart-detail-product">
                                         <p>{{ intval($details['name']) }}</p>

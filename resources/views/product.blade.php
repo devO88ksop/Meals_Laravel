@@ -3,6 +3,7 @@
 @section('content')
     
 <div class="row">
+
     @foreach($products as $product)
         <div class="col-xs-18 col-sm-6 col-md-3 "  >
             <div class="thumbnail card" >
@@ -17,6 +18,7 @@
             </div>
         </div>
     @endforeach
+    
 </div>
     
 @endsection

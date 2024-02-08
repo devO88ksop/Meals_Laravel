@@ -73,7 +73,7 @@ class CategoryController extends Controller
     public function update(Request $request, string $id)
     {
         $this->a->update($id);
-        return redirect('categories');
+        return redirect('admin/categories');
 
     }
 
@@ -84,7 +84,7 @@ class CategoryController extends Controller
     {
         //
         $this->a->destroy($id);
-        return redirect('categories');
+        return redirect('admin/categories');
 
     }
 }

@@ -72,8 +72,6 @@ class ProductController extends Controller
         $value = session()->get('cart');
 
         $date = Carbon::now()->format('d-m-Y');
-
-
         $order = new Order();
         $order->date = $date;
         $order->save();
@@ -86,7 +84,7 @@ class ProductController extends Controller
             $orderDetail->product_id = $id;
             $orderDetail->name = $details['name'];
             $orderDetail->quantity = $details['quantity'];
-            $orderDetail->image = $details['image'];
+            $orderDetail->image = $details['image'];  
             $orderDetail->price= $details['price'];
             $orderDetail->save();
 
