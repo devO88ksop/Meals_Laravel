@@ -357,7 +357,6 @@
               </div>
             </div>
           </div>
-          <!-- trending category -->
           <div class="col-md-6">
             <div class="collapse show" id="collapseOne" aria-labelledby="headingOne" data-parent="#accordion">
               <div class="img_container ">
@@ -513,7 +512,7 @@
               </h6>
             </div>
           </a>
-          <p class="btn-holder"><a href="{{ route('add.to.cart', $product->id) }}" class="btn brand-btn btn-block text-center" role="button">Add to cart</a> </p>
+          <p class="btn-holder"><a href="{{ route('add.to.cart', $product->id) }}" class="btn btn-warning btn-block text-center" role="button">Add to cart</a> </p>
 
         </div>
         <div class="box">
